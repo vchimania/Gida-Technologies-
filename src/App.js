@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import ShowDialog from "./ShowDialog";
 
-function App() {
+export default function App() {
+  const[dialog,setDialog]=useState(false);
+const openDialog=()=>{
+  setDialog(true);
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App" >
+        <h1 style={{width:500, marginLeft: 594}}>Gida Technologies</h1>
+        <img
+          src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Maps_Pin_FullColor.max-1000x1000.png"
+          alt="landing"
+          style={{width:500, marginLeft: 491}}
+        />
+        <hr/>
+        <button type="button" className="btn btn-primary" onClick={openDialog}>Open Dialog</button> <small>Scroll Down</small><hr/>
+        {dialog===true && <ShowDialog/>}
+        
+      </div>
+      
+    </>
   );
 }
 
-export default App;
+
